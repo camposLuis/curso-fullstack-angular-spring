@@ -25,7 +25,7 @@ public class Pessoa {
 	private Endereco endereco;
 	
 	@NotNull
-	private boolean ativo;
+	private Boolean ativo;
 
 	public Long getCodigo() {
 		return codigo;
@@ -51,11 +51,11 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 
-	public boolean isAtivo() {
+	public Boolean getAtivo() {
 		return ativo;
 	}
 
-	public void setAtivo(boolean ativo) {
+	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
 
@@ -82,7 +82,6 @@ public class Pessoa {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}
-	
+	}	
 
 }
