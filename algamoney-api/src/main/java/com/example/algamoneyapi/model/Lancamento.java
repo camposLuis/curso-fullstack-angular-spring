@@ -3,6 +3,7 @@ package com.example.algamoneyapi.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,8 +24,10 @@ public class Lancamento {
 	
 	private String descricao;
 	
+	@Column(name = "data_vencimento")
 	private LocalDate dataVencimento;
 	
+	@Column(name = "data_pagamento")
 	private LocalDate dataPagamento;
 	
 	private BigDecimal valor;
@@ -32,15 +35,15 @@ public class Lancamento {
 	private String observacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "codigoCategoria")
+	@JoinColumn(name = "codigo_Categoria" )
 	private Categoria categoria;
 	
 	@ManyToOne
-	@JoinColumn(name = "codigoPessoa")
+	@JoinColumn(name = "codigo_Pessoa")
 	private Pessoa pessoa;
 	
 	@Enumerated(EnumType.STRING)
-	private TipoLancamento tipoLancamento;
+	private TipoLancamento tipo;
 
 	public Long getCodigo() {
 		return codigo;
@@ -106,12 +109,12 @@ public class Lancamento {
 		this.pessoa = pessoa;
 	}
 
-	public TipoLancamento getTipoLancamento() {
-		return tipoLancamento;
+	public TipoLancamento getTipo() {
+		return tipo;
 	}
 
-	public void setTipoLancamento(TipoLancamento tipoLancamento) {
-		this.tipoLancamento = tipoLancamento;
+	public void setTipoLancamento(TipoLancamento tipo) {
+		this.tipo = tipo;
 	}	
 
 	@Override
